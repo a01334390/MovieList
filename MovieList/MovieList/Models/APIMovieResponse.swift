@@ -5,7 +5,7 @@
 //  Created by Fernando Martin Garcia Del Angel on 21/12/20.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - APIMovieResponse
 class APIMovieResponse: Codable, Identifiable {
@@ -42,7 +42,15 @@ class Dates: Codable {
 }
 
 // MARK: - Result
-class Movie: Codable, Identifiable {
+class Movie: Hashable, Codable, Identifiable {
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?

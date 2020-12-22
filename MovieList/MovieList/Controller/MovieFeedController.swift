@@ -37,7 +37,7 @@ class MovieFeed : ObservableObject, RandomAccessCollection {
      Loads Movies from URL
      - Parameter currentItem: Receives the currentItem that is displayed to determine if it should load more Movies
      */
-    func loadMoreMovies(currentItem: APIMovieResponse? = nil) {
+    func loadMoreMovies(currentItem: Movie? = nil) {
         // Check if data should or shouldn't be loaded
         if !shouldLoadMoreData(currentItem: currentItem) {
             return
@@ -60,7 +60,7 @@ class MovieFeed : ObservableObject, RandomAccessCollection {
      - Parameter currentItem: Receives the currentItem that is displayed to determine if it should load more Movies
      - Returns: True if more Movies should be loaded or false otherwise
      */
-    func shouldLoadMoreData(currentItem : APIMovieResponse? = nil) -> Bool{
+    func shouldLoadMoreData(currentItem : Movie? = nil) -> Bool{
         guard let currentItem = currentItem else {
             return true
         }
