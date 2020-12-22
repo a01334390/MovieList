@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var movieFeed = MovieFeed()
     var body: some View {
         Text("Hello, world!")
             .padding()
