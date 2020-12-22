@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -122,10 +122,18 @@
 		BD677E572591728400C4D7C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD677E6A25917A7000C4D7C9 /* Components */,
 				BD677E4A2591720200C4D7C9 /* LaunchScreen.storyboard */,
 				BD677E432591720000C4D7C9 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BD677E6A25917A7000C4D7C9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		DE678AAC31571E8E7637389A /* Pods */ = {
@@ -134,7 +142,6 @@
 				157C9D257FDBE949250825A3 /* Pods-MovieList.debug.xcconfig */,
 				3CFA0F07D2EE7603C11B27B4 /* Pods-MovieList.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
