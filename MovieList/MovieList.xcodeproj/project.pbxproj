@@ -18,6 +18,7 @@
 		BD677E5C2591740C00C4D7C9 /* APIMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E5B2591740C00C4D7C9 /* APIMovieResponse.swift */; };
 		BD677E6D25917AB900C4D7C9 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E6C25917AB900C4D7C9 /* MovieCard.swift */; };
 		BD677E712591802C00C4D7C9 /* SearchbarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E702591802C00C4D7C9 /* SearchbarUIView.swift */; };
+		BD677E74259186DE00C4D7C9 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E73259186DE00C4D7C9 /* MovieDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		BD677E5B2591740C00C4D7C9 /* APIMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovieResponse.swift; sourceTree = "<group>"; };
 		BD677E6C25917AB900C4D7C9 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
 		BD677E702591802C00C4D7C9 /* SearchbarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchbarUIView.swift; sourceTree = "<group>"; };
+		BD677E73259186DE00C4D7C9 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				BD677E6A25917A7000C4D7C9 /* Components */,
 				BD677E4A2591720200C4D7C9 /* LaunchScreen.storyboard */,
 				BD677E432591720000C4D7C9 /* ContentView.swift */,
+				BD677E73259186DE00C4D7C9 /* MovieDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				BD677E422591720000C4D7C9 /* SceneDelegate.swift in Sources */,
 				BD677E712591802C00C4D7C9 /* SearchbarUIView.swift in Sources */,
 				BD677E442591720000C4D7C9 /* ContentView.swift in Sources */,
+				BD677E74259186DE00C4D7C9 /* MovieDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
