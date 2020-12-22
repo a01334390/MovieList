@@ -18,7 +18,7 @@ struct ContentView: View {
                     GridItem(.flexible()),
                     GridItem(.flexible())
                 ]) {
-                    ForEach(movieFeed.movieListItems, id: \.self) { movie in
+                    ForEach(movieFeed.movieListItems, id: \.self.lID) { movie in
                         NavigationLink(destination: MovieDetail(movie: movie)) {
                             MovieCard(movie: movie)
                                 .onAppear {

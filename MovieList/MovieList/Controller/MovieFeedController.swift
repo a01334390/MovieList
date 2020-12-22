@@ -108,7 +108,8 @@ class MovieFeed : ObservableObject, RandomAccessCollection {
             } else {
                 // If we passed all characters and we still HAVE some, something weird is happening
                 guard case let .loading(page) = self.loadStatus else {
-                    fatalError("Load status is in a bad state")
+//                    fatalError("Load status is in a bad state")
+                    return
                 }
                 // If everything is done, we can load the next page
                 self.loadStatus = .ready(nextPage: page + 1)

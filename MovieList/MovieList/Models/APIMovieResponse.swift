@@ -60,6 +60,7 @@ class Movie: Codable, Identifiable, Hashable {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
+    let lID = UUID()
     let id: Int?
     let originalLanguage: String?
     let originalTitle, overview: String?
