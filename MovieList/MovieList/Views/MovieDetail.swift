@@ -79,7 +79,7 @@ struct MovieDetail_Previews: PreviewProvider {
                                  backdropPath: "/tYkMtYPNpUdLdzGDUTC5atyMh9X.jpg",
                                  genreIDS: [28, 53, 80, 18],
                                  id: 553604,
-                                 originalLanguage: OriginalLanguage(rawValue: "en") ?? .en,
+                                 originalLanguage: "en",
                                  originalTitle: "Honest Thief",
                                  overview: "A bank robber tries to turn himself in because he's falling in love and wants to live an honest life...but when he realizes the Feds are more corrupt than him, he must fight back to clear his name.",
                                  popularity: 2185.404,

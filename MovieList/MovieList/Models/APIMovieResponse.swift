@@ -61,7 +61,7 @@ class Movie: Codable, Identifiable, Hashable {
     let backdropPath: String?
     let genreIDS: [Int]?
     let id: Int?
-    let originalLanguage: OriginalLanguage?
+    let originalLanguage: String?
     let originalTitle, overview: String?
     let popularity: Double?
     let posterPath, releaseDate, title: String?
@@ -84,7 +84,7 @@ class Movie: Codable, Identifiable, Hashable {
         case voteCount = "vote_count"
     }
 
-    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: OriginalLanguage?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: String?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.genreIDS = genreIDS
@@ -100,11 +100,4 @@ class Movie: Codable, Identifiable, Hashable {
         self.voteAverage = voteAverage
         self.voteCount = voteCount
     }
-}
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case es = "es"
-    case ja = "ja"
-    case ko = "ko"
 }
