@@ -13,28 +13,23 @@ struct ContentView: View {
     var hapticImpact = UIImpactFeedbackGenerator(style: .light)
     var body: some View {
         NavigationView {
-            VStack {
-                SearchBar(text: $searchText, placeholder: "Search for Movies...")
-                Spacer()
-                List {
-                    ForEach(self.movieFeed.filter {
-                        self.searchText.isEmpty ? true : $0.title?.lowercased().contains(self.searchText.lowercased()) ?? false
-                    }, id: \.self) { movie in
-                        ZStack {
-                            HStack {
-                                Spacer()
-                                MovieCard(movie: movie)
-                                    .onAppear {
-                                        self.movieFeed.loadMoreMovies(currentItem: movie)
-                                    }
-                                Spacer()
-                            }
-                            NavigationLink(destination: MovieDetail(movie: movie)) {
-                                EmptyView()
-                            }.buttonStyle(PlainButtonStyle())
+            ScrollView {
+                LazyVGrid (columns: [
+                    GridItem(.flexible()),
+                    GridItem(.flexible())
+                ]) {
+                    ForEach(movieFeed.movieListItems, id: \.self) { movie in
+                        NavigationLink(destination: MovieDetail(movie: movie)) {
+                            MovieCard(movie: movie)
+                                .onAppear {
+                                    self.movieFeed.loadMoreMovies(currentItem: movie)
+                                }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        
                     }
                 }
+                .padding(.horizontal)
             }
             .navigationTitle("Movies")
         }
