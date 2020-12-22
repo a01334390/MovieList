@@ -7,9 +7,15 @@
 
 import UIKit
 
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let aPIMovieResponse = try? newJSONDecoder().decode(APIMovieResponse.self, from: jsonData)
+
+import Foundation
+
 // MARK: - APIMovieResponse
-class APIMovieResponse: Codable, Identifiable {
-    var id: Int?
+class APIMovieResponse: Codable {
     let dates: Dates?
     let page: Int?
     let movies: [Movie]?
@@ -22,7 +28,7 @@ class APIMovieResponse: Codable, Identifiable {
         case totalResults = "total_results"
     }
 
-    init(dates: Dates, page: Int, movies: [Movie], totalPages: Int, totalResults: Int) {
+    init(dates: Dates?, page: Int?, movies: [Movie]?, totalPages: Int?, totalResults: Int?) {
         self.dates = dates
         self.page = page
         self.movies = movies
@@ -35,14 +41,14 @@ class APIMovieResponse: Codable, Identifiable {
 class Dates: Codable {
     let maximum, minimum: String?
 
-    init(maximum: String, minimum: String) {
+    init(maximum: String?, minimum: String?) {
         self.maximum = maximum
         self.minimum = minimum
     }
 }
 
 // MARK: - Result
-class Movie: Hashable, Codable, Identifiable {
+class Movie: Codable, Identifiable, Hashable {
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         lhs.id == rhs.id
     }
@@ -78,7 +84,7 @@ class Movie: Hashable, Codable, Identifiable {
         case voteCount = "vote_count"
     }
 
-    init(adult: Bool, backdropPath: String, genreIDS: [Int], id: Int, originalLanguage: OriginalLanguage, originalTitle: String, overview: String, popularity: Double, posterPath: String, releaseDate: String, title: String, video: Bool, voteAverage: Double, voteCount: Int) {
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: OriginalLanguage?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.genreIDS = genreIDS
@@ -102,4 +108,3 @@ enum OriginalLanguage: String, Codable {
     case ja = "ja"
     case ko = "ko"
 }
-

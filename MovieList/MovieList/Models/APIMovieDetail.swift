@@ -7,13 +7,11 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - APIMovieDetail
 class APIMovieDetail: Codable {
     let adult: Bool?
     let backdropPath: String?
-    let belongsToCollection: JSONNull?
+    let belongsToCollection: BelongsToCollection?
     let budget: Int?
     let genres: [Genre]?
     let homepage: String?
@@ -50,18 +48,8 @@ class APIMovieDetail: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
-    
-    func genresTo() -> String {
-        guard let genres = self.genres else {
-            return ""
-        }
-        
-        return genres.map ({
-            "\($0.name ?? "")"
-        }).joined(separator: ", ")
-    }
 
-    init(adult: Bool?, backdropPath: String?, belongsToCollection: JSONNull?, budget: Int?, genres: [Genre]?, homepage: String?, id: Int?, imdbID: String?, originalLanguage: String?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, productionCompanies: [ProductionCompany]?, productionCountries: [ProductionCountry]?, releaseDate: String?, revenue: Int?, runtime: Int?, spokenLanguages: [SpokenLanguage]?, status: String?, tagline: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
+    init(adult: Bool?, backdropPath: String?, belongsToCollection: BelongsToCollection?, budget: Int?, genres: [Genre]?, homepage: String?, id: Int?, imdbID: String?, originalLanguage: String?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, productionCompanies: [ProductionCompany]?, productionCountries: [ProductionCountry]?, releaseDate: String?, revenue: Int?, runtime: Int?, spokenLanguages: [SpokenLanguage]?, status: String?, tagline: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.belongsToCollection = belongsToCollection
@@ -88,6 +76,35 @@ class APIMovieDetail: Codable {
         self.voteAverage = voteAverage
         self.voteCount = voteCount
     }
+    
+    func genresTo() -> String {
+        guard let genres = self.genres else {
+            return ""
+        }
+        
+        return genres.map ({
+            "\($0.name ?? "")"
+        }).joined(separator: ", ")
+    }
+}
+
+// MARK: - BelongsToCollection
+class BelongsToCollection: Codable {
+    let id: Int?
+    let name, posterPath, backdropPath: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, name
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+    }
+
+    init(id: Int?, name: String?, posterPath: String?, backdropPath: String?) {
+        self.id = id
+        self.name = name
+        self.posterPath = posterPath
+        self.backdropPath = backdropPath
+    }
 }
 
 // MARK: - Genre
@@ -104,9 +121,7 @@ class Genre: Codable {
 // MARK: - ProductionCompany
 class ProductionCompany: Codable {
     let id: Int?
-    let logoPath: String?
-    let name: String?
-    let originCountry: OriginCountry?
+    let logoPath, name, originCountry: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -115,18 +130,12 @@ class ProductionCompany: Codable {
         case originCountry = "origin_country"
     }
 
-    init(id: Int?, logoPath: String?, name: String?, originCountry: OriginCountry?) {
+    init(id: Int?, logoPath: String?, name: String?, originCountry: String?) {
         self.id = id
         self.logoPath = logoPath
         self.name = name
         self.originCountry = originCountry
     }
-}
-
-enum OriginCountry: String, Codable {
-    case empty = ""
-    case gb = "GB"
-    case us = "US"
 }
 
 // MARK: - ProductionCountry
@@ -158,32 +167,5 @@ class SpokenLanguage: Codable {
         self.englishName = englishName
         self.iso639_1 = iso639_1
         self.name = name
-    }
-}
-
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
     }
 }
