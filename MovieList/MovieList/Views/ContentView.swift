@@ -29,7 +29,7 @@ struct ContentView: View {
                                     }
                                 Spacer()
                             }
-                            NavigationLink(destination: MovieDetail()) {
+                            NavigationLink(destination: MovieDetail(movie: movie)) {
                                 EmptyView()
                             }.buttonStyle(PlainButtonStyle())
                         }
