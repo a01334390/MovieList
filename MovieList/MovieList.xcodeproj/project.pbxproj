@@ -16,6 +16,7 @@
 		BD677E4C2591720200C4D7C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD677E4A2591720200C4D7C9 /* LaunchScreen.storyboard */; };
 		BD677E592591734B00C4D7C9 /* MovieFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E582591734B00C4D7C9 /* MovieFeedController.swift */; };
 		BD677E5C2591740C00C4D7C9 /* APIMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E5B2591740C00C4D7C9 /* APIMovieResponse.swift */; };
+		BD677E6D25917AB900C4D7C9 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD677E6C25917AB900C4D7C9 /* MovieCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BD677E4D2591720200C4D7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD677E582591734B00C4D7C9 /* MovieFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFeedController.swift; sourceTree = "<group>"; };
 		BD677E5B2591740C00C4D7C9 /* APIMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovieResponse.swift; sourceTree = "<group>"; };
+		BD677E6C25917AB900C4D7C9 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		BD677E6A25917A7000C4D7C9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BD677E6C25917AB900C4D7C9 /* MovieCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				BD677E592591734B00C4D7C9 /* MovieFeedController.swift in Sources */,
 				BD677E5C2591740C00C4D7C9 /* APIMovieResponse.swift in Sources */,
+				BD677E6D25917AB900C4D7C9 /* MovieCard.swift in Sources */,
 				BD677E402591720000C4D7C9 /* AppDelegate.swift in Sources */,
 				BD677E422591720000C4D7C9 /* SceneDelegate.swift in Sources */,
 				BD677E442591720000C4D7C9 /* ContentView.swift in Sources */,
