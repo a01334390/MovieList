@@ -19,7 +19,8 @@ class MovieDetailController: ObservableObject {
     }
     
     private func getDetailedMovie(movie: Movie) {
-        if let url = URL(string: "\(url)?api_key=\(MovieListKeys().movieAPIKey)&language=en-US") {
+        if let url = URL(string: "\(url)\(String(movie.id ?? 0))?api_key=\(MovieListKeys().movieAPIKey)&language=en-US") {
+            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {

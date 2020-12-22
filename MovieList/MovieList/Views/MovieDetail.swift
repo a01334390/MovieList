@@ -18,24 +18,58 @@ struct MovieDetail: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2, content: {
-            Text(movie.title ?? "")
-                .font(.largeTitle)
-            Text("Duracion")
+        ScrollView {
+            VStack(alignment: .leading, spacing: 5, content: {
+                WebImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath ?? "")"))
+                    .resizable()
+                    .indicator(.activity)
+                    .transition(.fade)
+                    .scaledToFill()
+                if let title = movieDetail.movieDetail?.title {
+                    Text(title)
+                        .font(.largeTitle)
+                }
+                
+                if let runTime = movieDetail.movieDetail?.runtime {
+                    DataElement(title: "Runtime", data: "\(runTime) mins.")
+                }
+                
+                if let releaseDate = movieDetail.movieDetail?.releaseDate {
+                    DataElement(title: "Release Date", data: releaseDate)
+                }
+                
+                if let score = movieDetail.movieDetail?.voteAverage {
+                    DataElement(title: "Score", data: String(score))
+                }
+                
+                if (movieDetail.movieDetail?.genres) != nil {
+                    DataElement(title: "Genres",
+                                data: movieDetail.movieDetail?.genresTo() ?? "")
+                }
+                
+                if let description = movieDetail.movieDetail?.overview {
+                    DataElement(title: "Overview",
+                                data: description)
+                }
+            })
+            .padding()
+        }
+    }
+}
+
+struct DataElement: View {
+    var title: String
+    var data: String
+    var body: some View {
+        VStack (alignment: .leading) {
+            Text(title)
                 .font(.headline)
-            Text("122 mins")
-            Text("Fecha de Estreno")
-                .font(.headline)
-            Text("2 octubre 2019")
-            Text("Calificacion")
-                .font(.headline)
-            Text("8.5")
-            Text("Generos")
-                .font(.headline)
-            Text("Crimen, Suspense, Drama")
-            Text("Descripcion")
-                .font(.headline)
-        })
+            HStack {
+                Text(data)
+                    .multilineTextAlignment(.leading)
+                Spacer()
+            }
+        }
     }
 }
 
@@ -57,3 +91,5 @@ struct MovieDetail_Previews: PreviewProvider {
                                  voteCount: 230))
     }
 }
+
+

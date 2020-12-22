@@ -7,27 +7,29 @@
 
 import Foundation
 
+import Foundation
+
 // MARK: - APIMovieDetail
 class APIMovieDetail: Codable {
-    let adult: Bool
-    let backdropPath: String
+    let adult: Bool?
+    let backdropPath: String?
     let belongsToCollection: JSONNull?
-    let budget: Int
-    let genres: [Genre]
-    let homepage: String
-    let id: Int
-    let imdbID, originalLanguage, originalTitle, overview: String
-    let popularity: Double
-    let posterPath: String
-    let productionCompanies: [ProductionCompany]
-    let productionCountries: [ProductionCountry]
-    let releaseDate: String
-    let revenue, runtime: Int
-    let spokenLanguages: [SpokenLanguage]
-    let status, tagline, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+    let budget: Int?
+    let genres: [Genre]?
+    let homepage: String?
+    let id: Int?
+    let imdbID, originalLanguage, originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath: String?
+    let productionCompanies: [ProductionCompany]?
+    let productionCountries: [ProductionCountry]?
+    let releaseDate: String?
+    let revenue, runtime: Int?
+    let spokenLanguages: [SpokenLanguage]?
+    let status, tagline, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -48,8 +50,18 @@ class APIMovieDetail: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
+    
+    func genresTo() -> String {
+        guard let genres = self.genres else {
+            return ""
+        }
+        
+        return genres.map ({
+            "\($0.name ?? "")"
+        }).joined(separator: ", ")
+    }
 
-    init(adult: Bool, backdropPath: String, belongsToCollection: JSONNull?, budget: Int, genres: [Genre], homepage: String, id: Int, imdbID: String, originalLanguage: String, originalTitle: String, overview: String, popularity: Double, posterPath: String, productionCompanies: [ProductionCompany], productionCountries: [ProductionCountry], releaseDate: String, revenue: Int, runtime: Int, spokenLanguages: [SpokenLanguage], status: String, tagline: String, title: String, video: Bool, voteAverage: Double, voteCount: Int) {
+    init(adult: Bool?, backdropPath: String?, belongsToCollection: JSONNull?, budget: Int?, genres: [Genre]?, homepage: String?, id: Int?, imdbID: String?, originalLanguage: String?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, productionCompanies: [ProductionCompany]?, productionCountries: [ProductionCountry]?, releaseDate: String?, revenue: Int?, runtime: Int?, spokenLanguages: [SpokenLanguage]?, status: String?, tagline: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.belongsToCollection = belongsToCollection
@@ -80,10 +92,10 @@ class APIMovieDetail: Codable {
 
 // MARK: - Genre
 class Genre: Codable {
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
 
-    init(id: Int, name: String) {
+    init(id: Int?, name: String?) {
         self.id = id
         self.name = name
     }
@@ -91,10 +103,10 @@ class Genre: Codable {
 
 // MARK: - ProductionCompany
 class ProductionCompany: Codable {
-    let id: Int
+    let id: Int?
     let logoPath: String?
-    let name: String
-    let originCountry: OriginCountry
+    let name: String?
+    let originCountry: OriginCountry?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -103,7 +115,7 @@ class ProductionCompany: Codable {
         case originCountry = "origin_country"
     }
 
-    init(id: Int, logoPath: String?, name: String, originCountry: OriginCountry) {
+    init(id: Int?, logoPath: String?, name: String?, originCountry: OriginCountry?) {
         self.id = id
         self.logoPath = logoPath
         self.name = name
@@ -119,14 +131,14 @@ enum OriginCountry: String, Codable {
 
 // MARK: - ProductionCountry
 class ProductionCountry: Codable {
-    let iso3166_1, name: String
+    let iso3166_1, name: String?
 
     enum CodingKeys: String, CodingKey {
         case iso3166_1 = "iso_3166_1"
         case name
     }
 
-    init(iso3166_1: String, name: String) {
+    init(iso3166_1: String?, name: String?) {
         self.iso3166_1 = iso3166_1
         self.name = name
     }
@@ -134,7 +146,7 @@ class ProductionCountry: Codable {
 
 // MARK: - SpokenLanguage
 class SpokenLanguage: Codable {
-    let englishName, iso639_1, name: String
+    let englishName, iso639_1, name: String?
 
     enum CodingKeys: String, CodingKey {
         case englishName = "english_name"
@@ -142,7 +154,7 @@ class SpokenLanguage: Codable {
         case name
     }
 
-    init(englishName: String, iso639_1: String, name: String) {
+    init(englishName: String?, iso639_1: String?, name: String?) {
         self.englishName = englishName
         self.iso639_1 = iso639_1
         self.name = name
