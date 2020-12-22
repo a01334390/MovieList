@@ -20,7 +20,7 @@ struct MovieCard: View {
                 InformationalView(movie: movie)
             }
         }
-        .frame(width: 170, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .frame(minWidth: 85, idealWidth: 170, maxWidth: 340, minHeight: 125, idealHeight: 250, maxHeight: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .cornerRadius(10.0)
     }
 }
@@ -32,24 +32,34 @@ struct InformationalView: View {
             Spacer()
             ZStack {
                 Rectangle()
-                    .frame(height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: 85, alignment: .center)
                     .opacity(0.7)
                 HStack {
-                    VStack {
+                    VStack (alignment: .leading) {
                         Text(movie.title ?? "No Title")
                             .colorInvert()
-                            .font(.headline)
+                            .font(.system(size: 12, weight: .bold, design: .default))
+                            .lineLimit(3)
                         Text(movie.releaseDate ?? "No Date")
                             .colorInvert()
-                            .font(.caption)
+                            .font(.system(size: 8, weight: .light, design: .default))
                     }
-                    Image(systemName: "star")
-                        .foregroundColor(.yellow)
-                    Text(String(movie.voteAverage ?? 0.0))
-                        .colorInvert()
-                        .padding(.horizontal, -5)
+                    .padding(.leading)
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image(systemName: "star")
+                            .resizable()
+                            .foregroundColor(.yellow)
+                            .frame(width: 10, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Text(String(movie.voteAverage ?? 0.0))
+                            .colorInvert()
+                            .padding(.horizontal)
+                            .font(.system(size: 8, weight: .semibold, design: .default))
+                    }
                 }
             }
+            
         }
     }
 }
@@ -70,6 +80,7 @@ struct MovieCard_Previews: PreviewProvider {
                                video: false,
                                voteAverage: 7,
                                voteCount: 230))
+            .previewLayout(.sizeThatFits)
     }
 }
 

@@ -42,6 +42,7 @@
 		BD677E73259186DE00C4D7C9 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		BD677E772591896900C4D7C9 /* MovieDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailController.swift; sourceTree = "<group>"; };
 		BD677E7A25918A1200C4D7C9 /* APIMovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovieDetail.swift; sourceTree = "<group>"; };
+		BD677E7E25919F4F00C4D7C9 /* MovieList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MovieList.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		BD677E3E2591720000C4D7C9 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				BD677E7E25919F4F00C4D7C9 /* MovieList.entitlements */,
 				BD677E572591728400C4D7C9 /* Views */,
 				BD677E562591727E00C4D7C9 /* Models */,
 				BD677E552591727900C4D7C9 /* Extensions */,
@@ -423,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MovieList/MovieList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieList/Preview Content\"";
 				DEVELOPMENT_TEAM = R935X42Z66;
@@ -434,6 +437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martntn.MovieList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -445,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MovieList/MovieList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieList/Preview Content\"";
 				DEVELOPMENT_TEAM = R935X42Z66;
@@ -456,6 +461,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martntn.MovieList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

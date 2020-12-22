@@ -20,7 +20,7 @@ struct MovieDetail: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5, content: {
-                WebImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath ?? "")"))
+                WebImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.backdropPath ?? "")"))
                     .resizable()
                     .indicator(.activity)
                     .transition(.fade)
